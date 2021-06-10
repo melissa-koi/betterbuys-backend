@@ -1,0 +1,1 @@
+web: gunicorn betterbuys.wsgi --log-file -
