@@ -41,7 +41,7 @@ class Categories(models.Model):
 
 class Products(models.Model):
     title = models.CharField(max_length=30)
-    image = CloudinaryField('photos')
+    image = models.ImageField(upload_to="photos")
     description = models.CharField(max_length=100)
     price = models.IntegerField()
     quantity = models.IntegerField()

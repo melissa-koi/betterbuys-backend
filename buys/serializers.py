@@ -9,6 +9,7 @@ class UsersSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email' ,'password', 'age']
 
 class AddressSerializer(serializers.ModelSerializer):
+    user_id = UsersSerializer
     class Meta:
         model = Address
         fields = '__all__'
@@ -18,19 +19,23 @@ class CategoriesSerializer(serializers.ModelSerializer):
         model = Categories
         fields = '__all__'
 
-class OrderDetailsSerializer(serializers.ModelSerializer):
+class OrdersSerializer(serializers.ModelSerializer):
+    user_id = UsersSerializer
     class Meta:
-        model = Order_details
+        model = Orders
         fields = '__all__'
 
 class ProductsSerializer(serializers.ModelSerializer):
+    category_id = CategoriesSerializer
     class Meta:
         model = Products
         fields = '__all__'
 
-class OrdersSerializer(serializers.ModelSerializer):
+class OrderDetailsSerializer(serializers.ModelSerializer):
+    order_id = OrdersSerializer
+    product_id = ProductsSerializer
     class Meta:
-        model = Orders
+        model = Order_details
         fields = '__all__'
 
 
