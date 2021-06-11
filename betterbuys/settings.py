@@ -176,7 +176,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config("cloudinary_cloud_name"),
-    'API_SECRET': config("cloudinary_api_key"),
-    'API_KEY': config("cloudinary_api_secret")
+    'API_KEY': config("cloudinary_api_key"),
+    'API_SECRET': config("cloudinary_api_secret")
 }
 django_heroku.settings(locals())
