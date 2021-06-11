@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'corsheaders',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -151,10 +152,10 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
@@ -173,10 +174,9 @@ CORS_ALLOW_METHODS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-cloudinary.config(
-    cloud_name="dbmlti6lf",
-    api_key="373956939441388",
-    api_secret="oI2CaEVk5-elReuOSNMlr92cEAU"
-)
-
+CLOUDINARY_STORAGE = {
+    'cloud_name': config("cloudinary_cloud_name"),
+    'api_key': config("cloudinary_api_key"),
+    'api_secret': config("cloudinary_api_secret")
+}
 django_heroku.settings(locals())

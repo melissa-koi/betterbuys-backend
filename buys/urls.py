@@ -35,4 +35,4 @@ urlpatterns = [
     path('api/products/update/<int:pk>/',views.IndividualProducts.as_view()),
     path('api/products/delete/<int:pk>/',views.IndividualProducts.as_view()),
 
-]
+] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
