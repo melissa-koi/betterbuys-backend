@@ -10,7 +10,7 @@ class Users(models.Model):
     username = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
     email = models.EmailField()
-    age = models.CharField(max_length=30)
+    age = models.IntegerField()
 
     def save_users(self):
         self.save()
@@ -42,7 +42,7 @@ class Categories(models.Model):
 class Products(models.Model):
     title = models.CharField(max_length=30)
     image = models.ImageField(upload_to="photos")
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length= 10000)
     price = models.IntegerField()
     quantity = models.IntegerField()
     short_description = models.CharField(max_length=30, null=True)
