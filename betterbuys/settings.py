@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'corsheaders',
-    'cloudinary_storage'
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -155,7 +155,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+DEFAULT_FILE_STORAGE = "CLOUDINARY_STORAGE.storage.MediaCloudinaryStorage"
 
 CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
