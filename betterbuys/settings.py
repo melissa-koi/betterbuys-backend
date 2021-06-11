@@ -175,8 +175,8 @@ CORS_ALLOW_METHODS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_STORAGE = {
-    'cloud_name': config("cloudinary_cloud_name"),
-    'api_key': config("cloudinary_api_key"),
-    'api_secret': config("cloudinary_api_secret")
+    'CLOUD_NAME': config("cloudinary_cloud_name"),
+    'API_SECRET': config("cloudinary_api_key"),
+    'API_KEY': config("cloudinary_api_secret")
 }
 django_heroku.settings(locals())
